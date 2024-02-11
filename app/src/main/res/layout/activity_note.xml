@@ -82,19 +82,38 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="15dp"
             android:src="@drawable/btn_arrow_left"
-            app:layout_constraintEnd_toStartOf="@id/note_menu_page_info_tv"
+            app:layout_constraintEnd_toStartOf="@id/note_menu_cur_page_info_tv"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/note_menu_page_info_tv"
+            android:id="@+id/note_menu_cur_page_info_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6/16"
+
             android:textColor="#B3B3B3"
             android:textSize="13dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/note_menu_slash_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" / "
+            android:textColor="#B3B3B3"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/note_menu_cur_page_info_tv"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/note_menu_total_page_info_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#B3B3B3"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/note_menu_slash_tv"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -103,8 +122,19 @@
             android:layout_height="22dp"
             android:layout_marginTop="15dp"
             android:src="@drawable/btn_arrow_more"
-            app:layout_constraintStart_toEndOf="@id/note_menu_page_info_tv"
+            app:layout_constraintStart_toEndOf="@id/note_menu_total_page_info_tv"
             app:layout_constraintTop_toTopOf="parent" />
+        
+<!--        <com.google.android.material.slider.Slider-->
+<!--            android:id="@+id/note_menu_page_bar_sl"-->
+<!--            android:layout_width="165dp"-->
+<!--            android:layout_height="4dp"-->
+<!--            app:thumbColor="@color/white"-->
+<!--            app:trackColorActive="#2186FD"-->
+<!--            app:trackColorInactive="#B3B3B3"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/note_menu_gallery_iv"/>-->
 
         <ImageView
             android:id="@+id/note_menu_gallery_iv"
@@ -169,16 +199,18 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/note_paint_cl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="NotSibling">
 
-        <ImageView
-            android:id="@+id/note_default_background"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/note_paint_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/img_note_default_background"
             app:layout_constraintTop_toBottomOf="@id/note_menu_bar_cl"
-            tools:ignore="NotSibling" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
